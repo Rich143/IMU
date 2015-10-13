@@ -32,4 +32,4 @@
 *.dSYM/
 
 # makepp files
-.makepp/**
+**/.makepp/**

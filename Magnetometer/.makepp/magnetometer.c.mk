@@ -1,0 +1,6 @@
+INCLUDES=Debug/Debug.h Magnetometer.h TWI/TWI.h common.h
+SYSTEM_INCLUDES=stdio.h
+C_MD5_SUM=qVlCZSKzI7Dqxy/qiQVYlQ
+LIBS=
+SIGNATURE=1444776637,2613
+END=

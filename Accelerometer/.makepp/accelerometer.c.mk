@@ -1,0 +1,6 @@
+INCLUDES=Accelerometer/Accelerometer.h TWI/TWI.h common.h
+SYSTEM_INCLUDES=math.h stdio.h
+C_MD5_SUM=MCrH1QY3a1t6K3UkNyrTwg
+LIBS=
+SIGNATURE=1444776637,5491
+END=

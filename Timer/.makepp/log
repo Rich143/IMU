@@ -1,7 +1,0 @@
-3/usr/local/bin/makepp
-VERSION2.05.16.3darwin-thread-multi-2level
-LOAD_DEFAULT140297413776960timer140297413776408/users/richard/programming/avr/imu
-LOAD_INCL140297398163336makepp_builtin_rules.mk140297398122664/usr/local/share/makepp140297398157664makepp_default_makefile.mk140297398122664
-LOAD_END140297398157664
-*** error: no targets specified and no default target in makefile `/usr/local/share/makepp/makepp_default_makefile.mk'
-N_FILES000

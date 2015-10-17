@@ -22,7 +22,7 @@ PUBLIC tStatus Accel_Attitude(Attitude* attitude, boolean* readingValid) {
         return ERROR;
     }
 
-    int forceMagnitudeApprox = abs(raw.x) + abs(raw.y) + abs(raw.z);
+    int forceMagnitudeApprox = fabs(raw.x) + fabs(raw.y) + fabs(raw.z);
     if (forceMagnitudeApprox >= 2000 || forceMagnitudeApprox <= 500) {
     	(*readingValid) = false;
         printf("ACCEL ERROR: Magnitude >= 3000 or <= 500\n");
@@ -45,14 +45,18 @@ PUBLIC tStatus Accel_Attitude(Attitude* attitude, boolean* readingValid) {
 // 
 //     printf("After zeroing-> X: %d, Y: %d, Z: %d\n", raw.x, raw.y, raw.z);
 
-    double roll  = (atan2(-(double)raw.y, (double)raw.z)*180.0)/M_PI;
+    double roll  = (atan2((double)-raw.y, (double)raw.z)*180.0)/M_PI;
 
     double tmpSqrt = sqrt( sq( ((double)(raw.y)) ) + sq( ((double)(raw.z)) ) ); 
     double pitch = (atan2(((double)raw.x), tmpSqrt)*180.0)/M_PI;
-    
+   
+    pitch *= -1;
+    roll *= -1;
+
     attitude->roll = (int16_t)round(roll);
     attitude->pitch = (int16_t)round(pitch);
-
+    
+//     printf("Accel RAW: roll: %d, pitch: %d\n", attitude->roll, attitude->pitch);
     (*readingValid) = true;
     return SUCCESS;
 }
@@ -85,6 +89,8 @@ tStatus Accel_ReadAccel(Vector *v)
     v->x = x;
     v->y = y;
     v->z = z;
+    
+//     printf("Accel Raw: x: %d, y: %d, z: %d\n", x, y, z);
 
     return SUCCESS;
 }
